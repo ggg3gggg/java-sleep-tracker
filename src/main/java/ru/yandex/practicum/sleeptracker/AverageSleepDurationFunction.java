@@ -7,6 +7,8 @@ import java.util.function.Function;
 public class AverageSleepDurationFunction
         implements Function<List<SleepingSession>, SleepAnalysisResult<Double>> {
 
+    private static final String DESCRIPTION = "Средняя продолжительность сна";
+
     @Override
     public SleepAnalysisResult<Double> apply(List<SleepingSession> sessions) {
         double averageDuration = sessions.stream()
@@ -18,7 +20,7 @@ public class AverageSleepDurationFunction
                 .orElse(0);
 
         return new SleepAnalysisResult<>(
-                "Средняя продолжительность сна",
+                DESCRIPTION,
                 averageDuration
         );
     }

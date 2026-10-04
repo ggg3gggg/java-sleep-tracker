@@ -6,6 +6,9 @@ import java.util.function.Function;
 import java.util.stream.IntStream;
 
 public class SleeplessSleepSessionsFunction implements Function<List<SleepingSession>, SleepAnalysisResult<Long>> {
+
+    private static final String DESCRIPTION = "Количество бессонных ночей";
+
     @Override
     public SleepAnalysisResult<Long> apply(List<SleepingSession> sessions) {
 
@@ -27,7 +30,7 @@ public class SleeplessSleepSessionsFunction implements Function<List<SleepingSes
                 .sum();
 
         return new SleepAnalysisResult<>(
-            "Количество бессонных ночей",
+                DESCRIPTION,
             sleeplessNights
         );
     }

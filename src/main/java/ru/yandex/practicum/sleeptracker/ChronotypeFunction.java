@@ -7,6 +7,9 @@ import java.util.function.Function;
 
 public class ChronotypeFunction
         implements Function<List<SleepingSession>, SleepAnalysisResult<Chronotype>> {
+
+    private static final String DESCRIPTION = "Хронотип";
+
     @Override
     public SleepAnalysisResult<Chronotype> apply(List<SleepingSession> sessions) {
         int owls = 0;
@@ -43,7 +46,7 @@ public class ChronotypeFunction
         }
 
         return new SleepAnalysisResult<>(
-            "Хронотип",
+                DESCRIPTION,
             result
         );
     }

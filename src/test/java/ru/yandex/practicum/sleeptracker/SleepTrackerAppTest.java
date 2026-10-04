@@ -309,7 +309,7 @@ public class SleepTrackerAppTest {
     }
 
     @Test //Граничные значени
-    void checkLogFile() throws IOException{
+    void checkLogFile() throws IOException {
         SleepLogLoader loader = new SleepLogLoader();
         List<SleepingSession> sessions = loader.load("src/test/test-sleep-log.txt");
 

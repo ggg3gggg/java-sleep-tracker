@@ -7,6 +7,8 @@ import java.util.function.Function;
 public class MaxSleepDurationFunction
         implements Function<List<SleepingSession>, SleepAnalysisResult<Long>> {
 
+    private static final String DESCRIPTION = "Минимальная продолжительность сна";
+
     @Override
     public SleepAnalysisResult<Long> apply(List<SleepingSession> sessions) {
         long maxDuration = sessions.stream()
@@ -18,7 +20,7 @@ public class MaxSleepDurationFunction
                 .orElse(0);
 
         return new SleepAnalysisResult<>(
-                "Максимальная продолжительность сна",
+                DESCRIPTION,
                 maxDuration
         );
     }
