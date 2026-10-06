@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Tracker - Анализ сна</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M20 5C11.716 5 5 11.716 5 20C5 28.284 11.716 35 20 35C28.284 35 35 28.284 35 20C35 11.716 28.284 5 20 5Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M25 15C25 17.761 22.761 20 20 20C17.239 20 15 17.761 15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="16" cy="14" r="1.5" fill="currentColor"/>
+                    <circle cx="24" cy="14" r="1.5" fill="currentColor"/>
+                    <path d="M13 25C13 25 15 28 20 28C25 28 27 25 27 25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h1>Sleep Tracker</h1>
+            </div>
+            <p class="subtitle">Анализ качества сна и хронотипа</p>
+        </header>
+
+        <main>
+            <section class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17 8L12 3L7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h2>Загрузите файл с данными о сне</h2>
+                    <p>CSV файл или введите данные вручную</p>
+                    <input type="file" id="fileInput" accept=".csv,.txt" hidden>
+                    <button class="btn-primary" onclick="document.getElementById('fileInput').click()">
+                        Выбрать файл
+                    </button>
+                </div>
+            </section>
+
+            <section class="manual-input-section">
+                <h3>Или добавьте сессию сна вручную</h3>
+                <form id="sleepForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Дата</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Время засыпания</label>
+                            <input type="time" id="bedTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Время пробуждения</label>
+                            <input type="time" id="wakeTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Качество сна</label>
+                            <select id="quality" required>
+                                <option value="">Выберите...</option>
+                                <option value="EXCELLENT">Отличное</option>
+                                <option value="GOOD">Хорошее</option>
+                                <option value="NORMAL">Нормальное</option>
+                                <option value="BAD">Плохое</option>
+                                <option value="TERRIBLE">Ужасное</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Добавить сессию</button>
+                </form>
+            </section>
+
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h2>Результаты анализа</h2>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Всего сессий</div>
+                            <div class="stat-value" id="totalSessions">0</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">⏱️</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Средняя продолжительность</div>
+                            <div class="stat-value" id="avgDuration">0ч 0м</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📉</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Минимум</div>
+                            <div class="stat-value" id="minDuration">0ч 0м</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">📈</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Максимум</div>
+                            <div class="stat-value" id="maxDuration">0ч 0м</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card highlight">
+                        <div class="stat-icon">🦉</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Хронотип</div>
+                            <div class="stat-value" id="chronotype">-</div>
+                            <div class="stat-description" id="chronotypeDesc"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card alert">
+                        <div class="stat-icon">⚠️</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Плохой сон</div>
+                            <div class="stat-value" id="badSessions">0</div>
+                            <div class="stat-description">сессий с низким качеством</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>График продолжительности сна</h3>
+                    <canvas id="sleepChart"></canvas>
+                </div>
+
+                <div class="sessions-table">
+                    <h3>История сессий</h3>
+                    <div class="table-wrapper">
+                        <table id="sessionsTable">
+                            <thead>
+                                <tr>
+                                    <th>Дата</th>
+                                    <th>Время сна</th>
+                                    <th>Время пробуждения</th>
+                                    <th>Продолжительность</th>
+                                    <th>Качество</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sessionsTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Sleep Tracker © 2026 | Yandex Practicum Project</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
