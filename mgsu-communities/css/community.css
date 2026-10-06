@@ -1,0 +1,576 @@
+/* Community Page Specific Styles */
+
+.community-hero {
+    position: relative;
+    padding: 4rem 0 6rem;
+    overflow: hidden;
+    background: var(--bg-secondary);
+}
+
+.community-hero-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.community-hero-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.community-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.community-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ЧЕЧНЯ - Горские традиционные узоры */
+.community-hero.chechnya {
+    background: linear-gradient(135deg, #1a4d2e 0%, #0d2818 100%);
+}
+
+.community-hero.chechnya .community-pattern {
+    background:
+        repeating-linear-gradient(45deg, #2c7a3f 0px, #2c7a3f 4px, transparent 4px, transparent 12px),
+        repeating-linear-gradient(-45deg, #c41e3a 0px, #c41e3a 4px, transparent 4px, transparent 12px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, transparent 2px, transparent 30px);
+    background-size: 40px 40px, 40px 40px, 100% 100%;
+}
+
+.community-hero.chechnya::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(44, 122, 63, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(196, 30, 58, 0.2) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+/* ИНГУШЕТИЯ - Башенные мотивы */
+.community-hero.ingushetia {
+    background: linear-gradient(135deg, #8b1a1a 0%, #450d0d 100%);
+}
+
+.community-hero.ingushetia .community-pattern {
+    background-image:
+        repeating-linear-gradient(90deg, rgba(200, 16, 46, 0.4) 0px, transparent 2px, transparent 8px, rgba(0, 166, 81, 0.4) 10px, transparent 12px, transparent 20px),
+        repeating-linear-gradient(0deg, transparent 0px, transparent 50px, rgba(255,255,255,0.05) 50px, transparent 52px);
+    background-size: 20px 100%, 100% 52px;
+}
+
+.community-hero.ingushetia::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    right: 10%;
+    background:
+        linear-gradient(45deg, transparent 40%, rgba(200, 16, 46, 0.1) 40%, rgba(200, 16, 46, 0.1) 60%, transparent 60%);
+    transform: translateY(-50%) rotate(45deg);
+    pointer-events: none;
+}
+
+/* ДАГЕСТАН - Ковровые узоры */
+.community-hero.dagestan {
+    background: linear-gradient(135deg, #0a2e5c 0%, #051729 100%);
+}
+
+.community-hero.dagestan .community-pattern {
+    background:
+        repeating-conic-gradient(from 45deg at 50% 50%, #0d4d96 0deg, transparent 30deg, #de3831 60deg, transparent 90deg),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0px, transparent 1px, transparent 15px);
+    background-size: 60px 60px, 100% 15px;
+}
+
+.community-hero.dagestan::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(13, 77, 150, 0.3) 0%, transparent 30%),
+        radial-gradient(circle at 70% 70%, rgba(222, 56, 49, 0.3) 0%, transparent 30%);
+    opacity: 0.5;
+}
+
+/* КЧР - Карачаево-черкесские орнаменты */
+.community-hero.kchr {
+    background: linear-gradient(135deg, #005a7a 0%, #003a50 100%);
+}
+
+.community-hero.kchr .community-pattern {
+    background:
+        repeating-linear-gradient(60deg, #009fe3 0px, #009fe3 3px, transparent 3px, transparent 18px),
+        repeating-linear-gradient(-60deg, #00a651 0px, #00a651 3px, transparent 3px, transparent 18px),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 70px, 40px 70px, 20px 20px;
+}
+
+/* КБР - Адыгские узоры */
+.community-hero.kbr {
+    background: linear-gradient(135deg, #0d5c2e 0%, #073d1e 100%);
+}
+
+.community-hero.kbr .community-pattern {
+    background:
+        repeating-linear-gradient(45deg, #00a651 0px, #00a651 5px, transparent 5px, transparent 15px, #ffd100 15px, #ffd100 20px, transparent 20px, transparent 30px),
+        radial-gradient(circle at 20% 50%, rgba(0, 166, 81, 0.2) 0%, transparent 50%);
+    background-size: 42px 42px, 100% 100%;
+}
+
+.community-hero.kbr::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    bottom: 20%;
+    left: 10%;
+    background:
+        conic-gradient(from 0deg, #00a651 0deg, transparent 90deg, #ffd100 180deg, transparent 270deg);
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+/* ГРУЗИЯ - Грузинские кресты и виноградная лоза */
+.community-hero.georgia {
+    background: linear-gradient(135deg, #8b1a1a 0%, #5a0f0f 100%);
+}
+
+.community-hero.georgia .community-pattern {
+    background:
+        repeating-linear-gradient(0deg, transparent 0px, transparent 40px, #c8102e 40px, #c8102e 44px, transparent 44px, transparent 48px),
+        repeating-linear-gradient(90deg, transparent 0px, transparent 40px, #ffffff 40px, #ffffff 44px, transparent 44px, transparent 48px),
+        radial-gradient(circle at 50% 50%, rgba(200, 16, 46, 0.3) 0%, transparent 70%);
+    background-size: 100% 48px, 48px 100%, 200px 200px;
+}
+
+/* АРМЕНИЯ - Армянские узоры хачкар */
+.community-hero.armenia {
+    background: linear-gradient(135deg, #9b1c1c 0%, #660d0d 100%);
+}
+
+.community-hero.armenia .community-pattern {
+    background:
+        repeating-conic-gradient(from 0deg at 50% 50%,
+            #d90012 0deg 20deg,
+            transparent 20deg 45deg,
+            #0033a0 45deg 65deg,
+            transparent 65deg 90deg),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, transparent 2px, transparent 30px);
+    background-size: 50px 50px, 100% 100%;
+}
+
+.community-hero.armenia::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 25% 40%, rgba(217, 0, 18, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 75% 60%, rgba(0, 51, 160, 0.2) 0%, transparent 50%);
+}
+
+/* АЗЕРБАЙДЖАН - Огненные узоры и ковровые мотивы */
+.community-hero.azerbaijan {
+    background: linear-gradient(135deg, #005f8a 0%, #003a54 100%);
+}
+
+.community-hero.azerbaijan .community-pattern {
+    background:
+        radial-gradient(circle at 25% 25%, #00b5e2 3px, transparent 3px),
+        radial-gradient(circle at 75% 75%, #ef3340 3px, transparent 3px),
+        radial-gradient(circle at 50% 50%, #10b981 2px, transparent 2px),
+        repeating-linear-gradient(120deg, transparent 0px, transparent 25px, rgba(0, 181, 226, 0.1) 25px, rgba(0, 181, 226, 0.1) 26px);
+    background-size: 50px 50px, 50px 50px, 30px 30px, 100% 100%;
+    background-position: 0 0, 25px 25px, 15px 15px, 0 0;
+}
+
+.community-hero.azerbaijan::after {
+    content: '🔥';
+    position: absolute;
+    top: 20%;
+    right: 15%;
+    font-size: 120px;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+/* ОСЕТИЯ - Нартские мотивы */
+.community-hero.ossetia {
+    background: linear-gradient(135deg, #8b1a1a 0%, #5a0f0f 100%);
+}
+
+.community-hero.ossetia .community-pattern {
+    background:
+        repeating-linear-gradient(0deg, transparent 0px, transparent 30px, #c8102e 30px, #c8102e 32px),
+        repeating-linear-gradient(90deg, transparent 0px, transparent 30px, #ffd100 30px, #ffd100 32px),
+        radial-gradient(circle at 20% 80%, rgba(200, 16, 46, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(255, 209, 0, 0.2) 0%, transparent 40%);
+    background-size: 100% 32px, 32px 100%, 100% 100%, 100% 100%;
+}
+
+.community-hero.ossetia::before {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    top: 30%;
+    left: 15%;
+    background:
+        conic-gradient(from 0deg, #c8102e 0deg 90deg, transparent 90deg 180deg, #ffd100 180deg 270deg, transparent 270deg);
+    border-radius: 50%;
+    opacity: 0.08;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+}
+
+.back-button:hover {
+    color: var(--text-primary);
+}
+
+.community-hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.community-hero-flag {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.community-hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.community-hero-region {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.community-hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.stat-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+}
+
+/* Content Section */
+.community-content {
+    padding: 4rem 0;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.content-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.content-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.content-card p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.activities-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.activities-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+    padding: 0.75rem;
+    background: var(--bg-primary);
+    border-radius: 0.5rem;
+    border-left: 3px solid var(--primary);
+}
+
+.activities-list li::before {
+    content: '✓';
+    background: var(--primary);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.coordinator-card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.coordinator-avatar {
+    width: 64px;
+    height: 64px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.coordinator-avatar svg {
+    color: var(--primary);
+}
+
+.coordinator-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.coordinator-telegram {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.coordinator-telegram svg {
+    flex-shrink: 0;
+}
+
+.coordinator-telegram a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.coordinator-telegram a:hover {
+    text-decoration: underline;
+}
+
+/* Sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.join-card {
+    background: var(--bg-secondary);
+    border: 2px solid var(--primary);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.join-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.join-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.join-button-large {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary), #8b5cf6);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.join-button-large:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+}
+
+.social-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.social-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s;
+}
+
+.social-link:hover {
+    border-color: var(--primary);
+    background: var(--bg-tertiary);
+}
+
+.social-link svg {
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.info-card-sidebar {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.info-card-sidebar h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.steps-list {
+    list-style: none;
+    counter-reset: step-counter;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.steps-list li {
+    counter-increment: step-counter;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.steps-list li::before {
+    content: counter(step-counter);
+    background: var(--primary);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .community-hero-flag {
+        font-size: 3.5rem;
+    }
+
+    .community-hero-title {
+        font-size: 2rem;
+    }
+
+    .community-hero-region {
+        font-size: 1rem;
+    }
+
+    .community-hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .stat-badge {
+        justify-content: center;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .coordinator-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}

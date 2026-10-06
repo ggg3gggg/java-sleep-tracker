@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Землячество - НИУ МГСУ</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/community.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
+                    <path d="M20 8L24 16H16L20 8Z" fill="currentColor"/>
+                    <path d="M12 18L16 26H8L12 18Z" fill="currentColor"/>
+                    <path d="M28 18L32 26H24L28 18Z" fill="currentColor"/>
+                    <circle cx="20" cy="28" r="3" fill="currentColor"/>
+                </svg>
+                <span>Землячества МГСУ</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html">Главная</a>
+                <a href="index.html#catalog">Землячества</a>
+                <a href="index.html#for-freshmen">Первокурсникам</a>
+                <a href="index.html#contacts">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Community Hero -->
+    <section class="community-hero" id="communityHero">
+        <div class="community-pattern"></div>
+        <div class="container">
+            <a href="index.html" class="back-button">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M15 10H5M5 10L10 15M5 10L10 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Назад к каталогу
+            </a>
+            <div class="community-hero-content">
+                <div class="community-hero-flag" id="heroFlag"></div>
+                <h1 class="community-hero-title" id="heroTitle"></h1>
+                <p class="community-hero-region" id="heroRegion"></p>
+                <div class="community-hero-stats">
+                    <div class="stat-badge">
+                        <span>👥</span>
+                        <span id="heroMembers"></span>
+                    </div>
+                    <div class="stat-badge">
+                        <span>📅</span>
+                        <span id="heroYear"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Content -->
+    <section class="community-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Main Content -->
+                <div class="main-content">
+                    <div class="content-card">
+                        <h2>О землячестве</h2>
+                        <p id="fullDescription"></p>
+                    </div>
+
+                    <div class="content-card">
+                        <h2>Чем мы занимаемся</h2>
+                        <ul class="activities-list" id="activitiesList"></ul>
+                    </div>
+
+                    <div class="content-card">
+                        <h2>Координатор землячества</h2>
+                        <div class="coordinator-card">
+                            <div class="coordinator-avatar">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M6 21C6 17.134 8.686 14 12 14C15.314 14 18 17.134 18 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="coordinator-info">
+                                <h3 id="coordinatorName"></h3>
+                                <p class="coordinator-telegram">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0034 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92176 4.44061 8.37485 5.27072 7.03255C6.10083 5.69025 7.28825 4.60557 8.7 3.89997C9.87812 3.30493 11.1801 2.99656 12.5 3H13C15.0843 3.11502 17.053 3.99479 18.5291 5.47086C20.0052 6.94693 20.885 8.91568 21 11V11.5Z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <a href="#" id="coordinatorTelegram" target="_blank"></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <div class="join-card">
+                        <h3>Вступить в землячество</h3>
+                        <p>Заполни короткую заявку, и председатель свяжется с тобой</p>
+                        <button class="join-button-large" onclick="openJoinModal(event, window.currentCommunityId)">
+                            Подать заявку
+                        </button>
+                    </div>
+
+                    <div class="social-card">
+                        <h3>Наши социальные сети</h3>
+                        <div class="social-links" id="socialLinks"></div>
+                    </div>
+
+                    <div class="info-card-sidebar">
+                        <h4>💡 Что дальше?</h4>
+                        <ol class="steps-list">
+                            <li>Заполни заявку</li>
+                            <li>Отправь сообщение председателю</li>
+                            <li>Дождись ответа (обычно в течение 24 часов)</li>
+                            <li>Добро пожаловать в землячество!</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Землячества НИУ МГСУ. Студенческая инициатива.</p>
+            <div class="footer-links">
+                <a href="https://t.me/mgsuapp" target="_blank">Telegram</a>
+                <a href="index.html#about">О проекте</a>
+                <a href="index.html#contacts">Контакты</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Join Modal -->
+    <div id="joinModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h2>Вступить в землячество</h2>
+            <p class="modal-subtitle">Заполни заявку, и председатель свяжется с тобой</p>
+
+            <form id="joinForm" class="join-form">
+                <input type="hidden" id="communityId">
+
+                <div class="form-group">
+                    <label>Имя и Фамилия *</label>
+                    <input type="text" id="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Курс *</label>
+                    <select id="course" required>
+                        <option value="">Выбери курс</option>
+                        <option value="1">1 курс</option>
+                        <option value="2">2 курс</option>
+                        <option value="3">3 курс</option>
+                        <option value="4">4 курс</option>
+                        <option value="5">5 курс</option>
+                        <option value="магистратура">Магистратура</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Telegram *</label>
+                    <input type="text" id="telegram" placeholder="@username" required>
+                </div>
+
+                <div class="form-group">
+                    <label>WhatsApp (необязательно)</label>
+                    <input type="tel" id="whatsapp" placeholder="+7 999 123-45-67">
+                </div>
+
+                <div class="form-group">
+                    <label>Комментарий (необязательно)</label>
+                    <textarea id="comment" rows="3" placeholder="Расскажи о себе..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/community.js"></script>
+</body>
+</html>
